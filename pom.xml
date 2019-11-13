@@ -47,7 +47,7 @@
                     <webResources>
                         <resource>
                             <!-- this is relative to the pom.xml directory -->
-                            <directory>src/main</directory>
+                            <directory>resource</directory>
                         </resource>
                     </webResources>
                 </configuration>
