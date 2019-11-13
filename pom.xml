@@ -5,10 +5,15 @@
 	<artifactId>HelloWorldJavaEE</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>Hello World Java EE</name>
+	<name>WIMF</name>
 	<description>Learn Java JSP and Servlet</description>
 
 	<dependencies>
+                <dependency>
+                        <groupId>com.auth0</groupId>
+                        <artifactId>mvc-auth-commons</artifactId>
+                        <version>1.+</version>
+                </dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
