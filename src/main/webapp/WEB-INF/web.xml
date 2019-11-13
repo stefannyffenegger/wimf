@@ -4,6 +4,10 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1"
          metadata-complete="false">
+    <display-name>What's in my Fridge?!</display-name>
+    <welcome-file-list>
+        <welcome-file>jsp/index.html</welcome-file>
+    </welcome-file-list>
     <context-param>
         <param-name>com.auth0.domain</param-name>
         <param-value>wimf.eu.auth0.com</param-value>
