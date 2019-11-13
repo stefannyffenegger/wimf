@@ -11,10 +11,10 @@
     </context-param>
     <context-param>
         <param-name>com.auth0.clientId</param-name>
-        <param-value>kmyy6AWe3mMZwaOmxgQbyqiq5t6wY8J3</param-value>
+        <param-value>rQTUowkG32wGbTlPjPAmBgZxzDIsj7vF</param-value>
     </context-param>
     <context-param>
         <param-name>com.auth0.clientSecret</param-name>
-        <param-value>FkypaF6CZxtzl5PMKqEXamnR__Q1lsDpqi1SGc6CWx_zB645PWHEykfABdbzPNdG</param-value>
+        <param-value>3Vyc0QHELykTyE8_m24kHIOnEh3Lq1pVe1NRSEehG8dZeBeyR0-Hxgorfu3iU-HX</param-value>
     </context-param>
 </web-app>
