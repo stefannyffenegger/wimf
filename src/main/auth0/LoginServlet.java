@@ -1,4 +1,4 @@
-package com.auth0.example;
+package main.auth0;
 
 
 import com.auth0.AuthenticationController;

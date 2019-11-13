@@ -1,4 +1,4 @@
-package com.auth0.example;
+package main.auth0;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
