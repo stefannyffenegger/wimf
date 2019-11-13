@@ -45,10 +45,9 @@
                 <version>3.2.3</version>
                 <configuration>
                     <webResources>
-                        <resource>
-                            <!-- this is relative to the pom.xml directory -->
+                        <!-- resource>
                             <directory>resource</directory>
-                        </resource>
+                        </resource -->
                     </webResources>
                 </configuration>
             </plugin>
