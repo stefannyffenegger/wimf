@@ -7,14 +7,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>What's in my Fridge?!</title>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/fontawesome.css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="js/quagga.min.js"></script>
         <style>
             #interactive.viewport {position: relative; width: 100% ; height: auto; overflow: hidden; text-align: center; }
             #interactive.viewport > canvas, #interactive.viewport > video {max-width: 100% ; width: 100% ; }
             canvas.drawing, canvas.drawingBuffer {position: absolute; left: 0; top: 0; }
         </style>
-        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="js/quagga.min.js"></script>
         <script type="text/javascript">
             $(function () {
                 // Create the QuaggaJS config object for the live stream
@@ -120,11 +122,13 @@
                         });
                     }
                 });
-            });
+            }
+                    
+            );
         </script>
     </head>
     <body>
-        <h1>QuaggaJS Test</h1>
+        <h1>Barcode Scanner Test</h1>
         <div class="row">
             <div class="col-lg-6">
                 <div class="input-group">
@@ -160,4 +164,7 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+        <div>
+            
+        </div>
 </html>
