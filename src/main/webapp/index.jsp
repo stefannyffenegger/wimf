@@ -5,12 +5,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script type="text/javascript" src="assets/js/libs/quagga.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <title>What's in my Fridge?!</title>
         <style>
-            #interactive.viewport {position: relative; width: 100 % ; height: auto; overflow: hidden; text - align: center; }
-            #interactive.viewport > canvas, #interactive.viewport > video {max - width: 100 % ; width: 100 % ; }
+            #interactive.viewport {position: relative; width: 100% ; height: auto; overflow: hidden; text-align: center; }
+            #interactive.viewport > canvas, #interactive.viewport > video {max-width: 100% ; width: 100% ; }
             canvas.drawing, canvas.drawingBuffer {position: absolute; left: 0; top: 0; }
         </style>
+        <script type="text/javascript" src="js/quagga.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
         <script type="text/javascript">
             $(function () {
                 // Create the QuaggaJS config object for the live stream
