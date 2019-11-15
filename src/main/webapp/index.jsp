@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>What's in my Fridge?!</title>
         <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/fontawesome.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
         <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="js/quagga.min.js"></script>
