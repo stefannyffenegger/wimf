@@ -8,8 +8,8 @@
         <title>What's in my Fridge?!</title>
     </head>
     <body>
-        <h1>Yay Servlets! :D</h1>
-        <div>Auth0 Tests!</div>
+        <h1>Register</h1>
+        <div>Credentials</div>
         <form action="register.jsp" method="post">  
             Name:<input type="text" name="name"/><br><br/>  
             Password:<input type="password" name="password"/><br><br/>  

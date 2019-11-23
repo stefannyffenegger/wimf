@@ -10,8 +10,8 @@
     <body>
         <h1>Hibernate</h1>
         <div>Hibernate</div>
-        <%@page import="com.javatpoint.mypack.UserDao"%>  
-        <jsp:useBean id="obj" class="com.javatpoint.mypack.User">  
+        <%@page import="main.user.UserDao"%>  
+        <jsp:useBean id="obj" class="main.user.User">  
         </jsp:useBean>  
         <jsp:setProperty property="*" name="obj"/>  
 
