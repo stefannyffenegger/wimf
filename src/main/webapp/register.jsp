@@ -8,11 +8,17 @@
         <title>What's in my Fridge?!</title>
     </head>
     <body>
-        <h1>Yay Servlets! :D</h1>
-        <div>Auth0 Tests!</div>
-        <form action="helloServlet" method="post">
-            Enter your name: <input type="text" name="yourName" size="20">
-            <input type="submit" value="Call Servlet" />
-        </form>
+        <h1>Hibernate</h1>
+        <div>Hibernate</div>
+        <%@page import="com.javatpoint.mypack.UserDao"%>  
+        <jsp:useBean id="obj" class="com.javatpoint.mypack.User">  
+        </jsp:useBean>  
+        <jsp:setProperty property="*" name="obj"/>  
+
+        <%  
+        int i=UserDao.register(obj);  
+        if(i>0)  
+        out.print("You are successfully registered");
+        %>  
     </body>
 </html>

@@ -10,9 +10,11 @@
     <body>
         <h1>Yay Servlets! :D</h1>
         <div>Auth0 Tests!</div>
-        <form action="helloServlet" method="post">
-            Enter your name: <input type="text" name="yourName" size="20">
-            <input type="submit" value="Call Servlet" />
-        </form>
+        <form action="register.jsp" method="post">  
+            Name:<input type="text" name="name"/><br><br/>  
+            Password:<input type="password" name="password"/><br><br/>  
+            Email ID:<input type="text" name="email"/><br><br/>  
+            <input type="submit" value="register"/>"  
+        </form>  
     </body>
 </html>
