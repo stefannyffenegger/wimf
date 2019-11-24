@@ -15,7 +15,7 @@
         <jsp:setProperty property="*" name="obj"/>  
 
         <%  
-        int i=UserDao.register(obj);  
+        int i=main.user.UserDao.register(obj);  
         if(i>0)  
         out.print("You are successfully registered");
         %>  
