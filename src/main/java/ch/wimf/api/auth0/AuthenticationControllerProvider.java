@@ -1,4 +1,4 @@
-package main.auth0;
+package main.java.ch.wimf.api.auth0;
 
 import com.auth0.AuthenticationController;
 import com.auth0.jwk.JwkProvider;

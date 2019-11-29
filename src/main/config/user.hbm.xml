@@ -4,7 +4,7 @@
  "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">  
   
  <hibernate-mapping>  
- <class name="main.user.User" table="u400">  
+ <class name="java.user.User" table="u400">
  <id name="id">  
  <generator class="increment"></generator>  
  </id>  

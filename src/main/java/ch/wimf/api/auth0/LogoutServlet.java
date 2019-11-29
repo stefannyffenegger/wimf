@@ -1,4 +1,4 @@
-package main.auth0;
+package main.java.ch.wimf.api.auth0;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
