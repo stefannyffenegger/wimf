@@ -18,53 +18,121 @@ package main.java.ch.wimf.api.user;
 
 /**
  *
- * @author stefa
+ * @author Stefan Nyffenegger
  */
 public class User {
-        private int id;
-        private String name, password, email;
 
-    public User(int id, String name, String password, String email) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.email = email;
+    // User Table Attributes
+    private int id;
+    private String username;
+    private String firstname;
+    private String lastname;
+    private String email;
+    private String phone;
+    private String birthdate;
+    private String registration_date;
+    private String password;
+
+    /**
+     * Empty Default Constructor
+     */
+    public User() {
+
     }
 
-        
-//getters and setters  
+    /**
+     *
+     * @param id
+     * @param username
+     * @param firstname
+     * @param lastname
+     * @param email
+     * @param phone
+     * @param birthdate
+     * @param registration_date
+     * @param password
+     */
+    public User(int id, String username, String firstname, String lastname, String email, String phone, String birthdate, String registration_date, String password) {
+        this.id = id;
+        this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.phone = phone;
+        this.birthdate = birthdate;
+        this.registration_date = registration_date;
+        this.password = password;
+    }
 
     public int getId() {
         return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
-        
-    
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public String getRegistration_date() {
+        return registration_date;
+    }
+
+    public void setRegistration_date(String registration_date) {
+        this.registration_date = registration_date;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

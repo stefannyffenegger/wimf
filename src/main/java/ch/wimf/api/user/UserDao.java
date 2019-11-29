@@ -24,6 +24,10 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+/**
+ * 
+ * @author Stefan Nyffenegger
+ */
 public class UserDao {
     public static int register(User u) {
         int i = 0;

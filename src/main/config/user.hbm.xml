@@ -4,13 +4,19 @@
  "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">  
   
  <hibernate-mapping>  
- <class name="java.user.User" table="u400">
+ <class name="main.java.ch.wimf.api.user.User" table="u400">
  <id name="id">  
  <generator class="increment"></generator>  
- </id>  
- <property name="name"></property>  
- <property name="password"></property>  
+ </id>    
+ <property name="id"></property>  
+ <property name="username"></property>
+ <property name="firstname"></property>  
+ <property name="lastname"></property>
  <property name="email"></property>  
+ <property name="phone"></property>  
+ <property name="birthdate"></property>  
+ <property name="registration_date"></property>  
+ <property name="password"></property>
  </class>  
          
  </hibernate-mapping>  
