@@ -6,11 +6,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>What's in my Fridge?!</title>
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="js/quagga.min.js"></script>
+        <link href="resources/css/bootstrap.css" rel="stylesheet">
+        <link href="resources/css/font-awesome.min.css" rel="stylesheet">
+        <script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="resources/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="resources/js/quagga.min.js"></script>
         <style>
             #interactive.viewport {position: relative; width: 100% ; height: auto; overflow: hidden; text-align: center; }
             #interactive.viewport > canvas, #interactive.viewport > video {max-width: 100% ; width: 100% ; }
