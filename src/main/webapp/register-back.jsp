@@ -10,8 +10,8 @@
     <body>
         <h1>Hibernate</h1>
         <div>Hibernate</div>
-        <%@page import="main.java.ch.wimf.user.registration.UserDao"%>  
-        <jsp:useBean id="obj" class="main.java.ch.wimf.user.registration.User"></jsp:useBean>  
+        <%@page import="main.java.ch.wimf.user.registration.UserDao"%>
+        <jsp:useBean id="obj" class="main.java.ch.wimf.user.registration.User"/>
         <jsp:setProperty property="*" name="obj"/>  
 
         <%  
