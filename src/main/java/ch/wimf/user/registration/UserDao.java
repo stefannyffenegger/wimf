@@ -16,7 +16,6 @@
  */
 package main.java.ch.wimf.user.registration;
 
-import main.java.ch.wimf.user.registration.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -33,7 +32,7 @@ public class UserDao {
     public static int register(User u) {
         int i = 0;
 
-        StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure(".main/config/hibernate.cfg.xml").build();
+        StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("main/config/hibernate.cfg.xml").build();
         Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();
 
         SessionFactory factory = meta.getSessionFactoryBuilder().build();
