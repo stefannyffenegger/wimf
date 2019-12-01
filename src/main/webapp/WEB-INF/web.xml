@@ -4,17 +4,5 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1"
          metadata-complete="false">
-    <display-name>What's in my Fridge?!</display-name> 
-    <context-param>
-        <param-name>com.auth0.domain</param-name>
-        <param-value>wimf.eu.auth0.com</param-value>
-    </context-param>
-    <context-param>
-        <param-name>com.auth0.clientId</param-name>
-        <param-value>rQTUowkG32wGbTlPjPAmBgZxzDIsj7vF</param-value>
-    </context-param>
-    <context-param>
-        <param-name>com.auth0.clientSecret</param-name>
-        <param-value>3Vyc0QHELykTyE8_m24kHIOnEh3Lq1pVe1NRSEehG8dZeBeyR0-Hxgorfu3iU-HX</param-value>
-    </context-param>
+    <display-name>What's in my Fridge?!</display-name>
 </web-app>
