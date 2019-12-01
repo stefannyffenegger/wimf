@@ -32,7 +32,7 @@ public class UserDao {
     public static int register(User u) {
         int i = 0;
 
-        StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("main/config/hibernate.cfg.xml").build();
+        StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("./main/config/hibernate.cfg.xml").build();
         Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();
 
         SessionFactory factory = meta.getSessionFactoryBuilder().build();
