@@ -10,8 +10,8 @@
     <body>
         <h1>Register</h1>
         <div>Credentials</div>
-        <form action="register.jsp" method="post">  
-            Name:<input type="text" name="name"/><br><br/>  
+        <form action="register-back.jsp" method="post">  
+            Username:<input type="text" name="username"/><br><br/>  
             Password:<input type="password" name="password"/><br><br/>  
             Email ID:<input type="text" name="email"/><br><br/>  
             <input type="submit" value="register"/>"  

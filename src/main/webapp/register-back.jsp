@@ -10,12 +10,12 @@
     <body>
         <h1>Hibernate</h1>
         <div>Hibernate</div>
-        <%@page import="main..user.UserDao"%>  
-        <jsp:useBean id="obj" class="user.User"></jsp:useBean>  
+        <%@page import="main.java.ch.wimf.user.registration.UserDao"%>  
+        <jsp:useBean id="obj" class="main.java.ch.wimf.user.registration.User"></jsp:useBean>  
         <jsp:setProperty property="*" name="obj"/>  
 
         <%  
-        int i=main.user.UserDao.register(obj);  
+        int i=main.java.ch.wimf.user.registration.UserDao.register(obj);  
         if(i>0)  
         out.print("You are successfully registered");
         %>  
