@@ -8,16 +8,13 @@
         <title>What's in my Fridge?!</title>
     </head>
     <body>
-        <h1>Hibernate</h1>
-        <div>Hibernate</div>
-        <%@page import="main.java.ch.wimf.user.registration.UserDao"%>  
-        <jsp:useBean id="obj" class="main.java.ch.wimf.user.registration.User"></jsp:useBean>  
-        <jsp:setProperty property="*" name="obj"/>  
-
-        <%  
-        int i=main.java.ch.wimf.user.registration.UserDao.register(obj);  
-        if(i>0)  
-        out.print("You are successfully registered");
-        %>  
+        <h1>Register</h1>
+        <div>Credentials</div>
+        <form action="register-back.jsp" method="post">  
+            Username:<input type="text" name="username"/><br><br/>  
+            Password:<input type="password" name="password"/><br><br/>  
+            Email ID:<input type="text" name="email"/><br><br/>  
+            <input type="submit" value="register"/>"  
+        </form>  
     </body>
 </html>
