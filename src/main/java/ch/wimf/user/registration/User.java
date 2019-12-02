@@ -16,7 +16,8 @@
  */
 package main.java.ch.wimf.user.registration;
 
-import java.util.Date;
+import java.sql.Date;
+import javax.persistence.*;
 
 /**
  *
@@ -25,6 +26,8 @@ import java.util.Date;
 public class User {
 
     // User Table Attributes
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
     private String username;
     private String firstname;
