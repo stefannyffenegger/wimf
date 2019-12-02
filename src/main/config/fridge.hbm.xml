@@ -3,15 +3,14 @@
  "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
  "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">  
   
- <hibernate-mapping>  
- <class name="main.java.ch.wimf.api.product.Fridge" table="u400">
- <id name="id">  
- <generator class="increment"></generator>  
- </id>    
- <property name="id"></property>  
- <property name="id_item"></property>  
- <property name="name"></property>  
- <property name="description"></property>
- </class>  
+<hibernate-mapping>  
+    <class name="main.java.ch.wimf.product.Fridge" table="u400">
+        <id name="id" type="int" column="id"> 
+            <generator class="increment"></generator>  
+        </id>    
+        <property name="id"></property>
+        <property name="name"></property>  
+        <property name="description"></property>
+    </class>  
          
- </hibernate-mapping>  
+</hibernate-mapping>  
