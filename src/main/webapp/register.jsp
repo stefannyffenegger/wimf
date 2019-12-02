@@ -16,6 +16,7 @@
             Nachname:<input type="text" name="lastname"/><br><br/>
             Email:<input type="text" name="email"/><br><br/>
             Tel. Nummer:<input type="text" name="phone"/><br><br/>
+            Geburtsdatum:<input type="date" name="birthdate"/><br><br/>
             Passwort:<input type="password" name="password"/><br><br/>
             <input type="submit" value="register"/>
         </form>
