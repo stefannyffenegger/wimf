@@ -25,7 +25,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 /**
- * 
+ * User Data Access Object
  * @author Stefan Nyffenegger
  */
 public class UserDao {

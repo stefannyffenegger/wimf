@@ -13,7 +13,9 @@
  <property name="connection.password">wimf2019</property>
  <property name="connection.driver_class">org.mariadb.jdbc.Driver</property>
  
- <mapping resource="user.hbm.xml"/>  
+ <mapping resource="user.hbm.xml"/>
+ <mapping resource="item.hbm.xml"/> 
+ <mapping resource="fridge.hbm.xml"/> 
  </session-factory>  
-  
+ 
 </hibernate-configuration>  

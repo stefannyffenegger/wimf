@@ -24,9 +24,11 @@ import java.util.logging.Logger;
 import javax.persistence.*;
 
 /**
- *
+ * User Object
  * @author Stefan Nyffenegger
  */
+@Entity
+@Table(name = "users")
 public class User {
 
     // User Table Attributes
@@ -129,7 +131,7 @@ public class User {
 
     public void setBirthdate(String birthdate) {
         try {
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
             Date parsed = format.parse(birthdate); //Parse birthdate form String to Date
             this.birthdate = parsed;
         } catch (ParseException ex) {
