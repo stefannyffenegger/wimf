@@ -16,7 +16,11 @@
  */
 package main.java.ch.wimf.user.registration;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.*;
 
 /**
@@ -27,7 +31,7 @@ public class User {
 
     // User Table Attributes
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String username;
     private String firstname;
@@ -59,14 +63,14 @@ public class User {
      * @param registration_date
      * @param password
      */
-    public User(int id, String username, String firstname, String lastname, String email, String phone, Date birthdate, Date registration_date, String password) {
+    public User(int id, String username, String firstname, String lastname, String email, String phone, String birthdate, Date registration_date, String password) {
         this.id = id;
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.phone = phone;
-        this.birthdate = birthdate;
+        this.birthdate = setBirthdate(birthdate);
         this.registration_date = registration_date;
         this.password = password;
     }
@@ -123,8 +127,14 @@ public class User {
         return birthdate.toString();
     }
 
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
+    public void setBirthdate(String birthdate) {
+        try {
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            Date parsed = format.parse(birthdate);
+            this.birthdate = parsed;
+        } catch (ParseException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public String getRegistration_date() {
