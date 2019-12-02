@@ -9,12 +9,15 @@
     </head>
     <body>
         <h1>Register</h1>
-        <div>Credentials</div>
-        <form action="api/register_api.jsp" method="post">  
-            Username:<input type="text" name="username"/><br><br/>  
-            Password:<input type="password" name="password"/><br><br/>  
-            Email ID:<input type="text" name="email"/><br><br/>  
-            <input type="submit" value="register"/>"  
-        </form>  
+        <div>Ihre Angaben</div>
+        <form action="api/register_api.jsp" method="post">
+            Benutzername:<input type="text" name="username"/><br><br/>
+            Vorname:<input type="text" name="firstname"/><br><br/>
+            Nachname:<input type="text" name="lastname"/><br><br/>
+            Email:<input type="text" name="email"/><br><br/>
+            Tel. Nummer:<input type="text" name="phone"/><br><br/>
+            Passwort:<input type="password" name="password"/><br><br/>
+            <input type="submit" value="register"/>
+        </form>
     </body>
 </html>

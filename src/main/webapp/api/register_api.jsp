@@ -8,10 +8,11 @@
         <title>What's in my Fridge?!</title>
     </head>
     <body>
+        <h1>Register</h1>
         <%@page import="main.java.ch.wimf.user.registration.UserDao"%>
         <jsp:useBean id="obj" class="main.java.ch.wimf.user.registration.User"/>
         <jsp:setProperty property="*" name="obj"/>  
-        
+
         <%  
         int i=main.java.ch.wimf.user.registration.UserDao.register(obj);  
         if(i>0)  
