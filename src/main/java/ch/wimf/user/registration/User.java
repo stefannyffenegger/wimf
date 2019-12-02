@@ -16,6 +16,8 @@
  */
 package main.java.ch.wimf.user.registration;
 
+import java.util.Date;
+
 /**
  *
  * @author Stefan Nyffenegger
@@ -29,8 +31,8 @@ public class User {
     private String lastname;
     private String email;
     private String phone;
-    private String birthdate;
-    private String registration_date;
+    private Date birthdate;
+    private Date registration_date;
     private String password;
 
     /**
@@ -52,7 +54,7 @@ public class User {
      * @param registration_date
      * @param password
      */
-    public User(int id, String username, String firstname, String lastname, String email, String phone, String birthdate, String registration_date, String password) {
+    public User(int id, String username, String firstname, String lastname, String email, String phone, Date birthdate, Date registration_date, String password) {
         this.id = id;
         this.username = username;
         this.firstname = firstname;
@@ -113,18 +115,18 @@ public class User {
     }
 
     public String getBirthdate() {
-        return birthdate;
+        return birthdate.toString();
     }
 
-    public void setBirthdate(String birthdate) {
+    public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
     }
 
     public String getRegistration_date() {
-        return registration_date;
+        return registration_date.toString();
     }
 
-    public void setRegistration_date(String registration_date) {
+    public void setRegistration_date(Date registration_date) {
         this.registration_date = registration_date;
     }
 
