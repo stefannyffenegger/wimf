@@ -16,8 +16,6 @@
         <jsp:setProperty property="*" name="obj"/>  
 
         <%
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            Date parsed = format.parse(obj.date);
             int i = main.java.ch.wimf.user.registration.UserDao.register(obj);
             if (i > 0) {
                 out.print("You are successfully registered");
