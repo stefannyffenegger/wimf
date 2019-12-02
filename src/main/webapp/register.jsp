@@ -10,7 +10,7 @@
     <body>
         <h1>Register</h1>
         <div>Credentials</div>
-        <form action="register-back.jsp" method="post">  
+        <form action="api/register_api.jsp" method="post">  
             Username:<input type="text" name="username"/><br><br/>  
             Password:<input type="password" name="password"/><br><br/>  
             Email ID:<input type="text" name="email"/><br><br/>  
