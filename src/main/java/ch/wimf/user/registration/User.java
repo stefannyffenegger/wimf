@@ -40,7 +40,7 @@ public class User {
     private String lastname;
     private String email;
     private String phone;
-    @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.DATE)
     private Date birthdate;
     @Temporal(TemporalType.TIMESTAMP)
     private Date registration_date;
@@ -131,7 +131,7 @@ public class User {
 
     public void setBirthdate(String birthdate) {
         try {
-            SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
+            SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy");
             Date parsed = format.parse(birthdate); //Parse birthdate form String to Date
             this.birthdate = parsed;
         } catch (ParseException ex) {
