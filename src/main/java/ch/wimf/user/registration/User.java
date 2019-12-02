@@ -70,7 +70,7 @@ public class User {
         this.lastname = lastname;
         this.email = email;
         this.phone = phone;
-        this.birthdate = setBirthdate(birthdate);
+        setBirthdate(birthdate);
         this.registration_date = registration_date;
         this.password = password;
     }
@@ -130,7 +130,7 @@ public class User {
     public void setBirthdate(String birthdate) {
         try {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            Date parsed = format.parse(birthdate);
+            Date parsed = format.parse(birthdate); //Parse birthdate form String to Date
             this.birthdate = parsed;
         } catch (ParseException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
