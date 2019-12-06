@@ -11,12 +11,12 @@
     </head>
     <body>
         <h1>Register</h1>
-        <%@page import="main.java.ch.wimf.user.registration.UserDao"%>
-        <jsp:useBean id="obj" class="main.java.ch.wimf.user.registration.User"/>
+        <%@page import="main.java.ch.wimf.user.UserDao"%>
+        <jsp:useBean id="obj" class="main.java.ch.wimf.user.User"/>
         <jsp:setProperty property="*" name="obj"/>  
 
         <%
-            int i = main.java.ch.wimf.user.registration.UserDao.register(obj);
+            int i = main.java.ch.wimf.user.UserDao.register(obj);
             if (i > 0) {
                 out.print("You are successfully registered");
             }
