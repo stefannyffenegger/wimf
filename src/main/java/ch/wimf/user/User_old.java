@@ -30,14 +30,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * User Object
+ * User_old Object
  * @author Stefan Nyffenegger
  */
 @Entity
 @Table(name = "users")
-public class User {
+public class User_old {
 
-    // User Table Attributes
+    // User_old Table Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -55,7 +55,7 @@ public class User {
     /**
      * Empty Default Constructor
      */
-    public User() {
+    public User_old() {
 
     }
 
@@ -71,7 +71,7 @@ public class User {
      * @param registration_date
      * @param password
      */
-    public User(int id, String username, String firstname, String lastname, String email, String phone, String birthdate, Date registration_date, String password) {
+    public User_old(int id, String username, String firstname, String lastname, String email, String phone, String birthdate, Date registration_date, String password) {
         this.id = id;
         this.username = username;
         this.firstname = firstname;
@@ -141,7 +141,7 @@ public class User {
             Date parsed = format.parse(birthdate); //Parse birthdate form String to Date
             this.birthdate = parsed;
         } catch (ParseException ex) {
-            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(User_old.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

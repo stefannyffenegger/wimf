@@ -31,24 +31,24 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.cfg.Configuration;
 
 /**
- * User Data Access Object
+ * User_old Data Access Object
  *
  * @author Stefan Nyffenegger
  */
-public class UserDao {
+public class UserDao_old {
 
     static Session sessionObj;
     static SessionFactory sessionFactoryObj;
-    
-    public final static Logger logger = Logger.getLogger(UserDao.class);
+
+    public final static Logger logger = Logger.getLogger(UserDao_old.class);
 
     /**
-     * 
+     *
      * @param u
-     * @return 
+     * @return
      */
     @Deprecated
-    public static int register(User u) {
+    public static int register(User_old u) {
         int i = 0;
 
         StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
@@ -68,7 +68,8 @@ public class UserDao {
 
     /**
      * Create Hibernate SessionFactory Object
-     * @return 
+     *
+     * @return
      */
     private static SessionFactory buildSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File
@@ -85,6 +86,7 @@ public class UserDao {
 
     /**
      * Display users
+     *
      * @return List with users
      */
     public static List getUsers() {
@@ -95,7 +97,7 @@ public class UserDao {
             // Transaction Object From Session Object
             sessionObj.beginTransaction();
 
-            usersList = sessionObj.createQuery("FROM main.java.ch.wimf.user.User").list();
+            usersList = sessionObj.createQuery("FROM User").list();
         } catch (HibernateException sqlException) {
             if (null != sessionObj.getTransaction()) {
                 logger.info("\nTransaction Is Being Rolled Back...\n");
@@ -107,5 +109,32 @@ public class UserDao {
             }
         }
         return usersList;
+    }
+
+    /**
+     *
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public List<User_old> getAllUsers() {
+
+        Transaction transaction = null;
+        List<User_old> listOfUser = null;
+        try (Session session = buildSessionFactory().openSession()){//HibernateUtil.getSessionFactory().openSession()) {
+            // start a transaction
+            transaction = session.beginTransaction();
+            // get an user object
+
+            listOfUser = session.createQuery("from User").getResultList();
+
+            // commit transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return listOfUser;
     }
 }
