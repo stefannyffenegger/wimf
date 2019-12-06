@@ -95,7 +95,7 @@ public class UserDao {
             // Transaction Object From Session Object
             sessionObj.beginTransaction();
 
-            usersList = sessionObj.createQuery("FROM users").list();
+            usersList = sessionObj.createQuery("FROM main.java.ch.wimf.user.User").list();
         } catch (HibernateException sqlException) {
             if (null != sessionObj.getTransaction()) {
                 logger.info("\nTransaction Is Being Rolled Back...\n");

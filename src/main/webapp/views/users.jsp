@@ -1,5 +1,6 @@
 <jsp:useBean id="obj" class="main.java.ch.wimf.user.User"/>
 <%@page import="main.java.ch.wimf.user.UserDao"%>
+<%@page import="main.java.ch.wimf.user.User"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
@@ -14,9 +15,10 @@
         <h1>Registered Users</h1>
         <%
             List users = main.java.ch.wimf.user.UserDao.getUsers();
-            if (users != null) {
+            if (users != null && users.size() > 0) {
                 out.print("You are successfully registered");
-                out.print(users.get(0));
+                User usr = (User)users.get(1);
+                out.print(usr.getFirstname());
             }
         %>  
     </body>
