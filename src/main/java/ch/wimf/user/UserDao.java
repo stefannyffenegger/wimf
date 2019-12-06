@@ -67,7 +67,7 @@ public class UserDao {
     }
 
     /**
-     * Create The Hibernate's SessionFactory Object
+     * Create Hibernate SessionFactory Object
      * @return 
      */
     private static SessionFactory buildSessionFactory() {
