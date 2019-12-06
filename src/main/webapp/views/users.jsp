@@ -16,9 +16,10 @@
         <%
             List users = main.java.ch.wimf.user.UserDao.getUsers();
             if (users != null && users.size() > 0) {
-                out.print("You are successfully registered");
-                User usr = (User)users.get(1);
-                out.print(usr.getFirstname());
+                User usr = (User)users.get(0);
+                out.print("Vorname: "+usr.getFirstname());
+            }else{
+                out.print("<div>Ooops..</div>");
             }
         %>  
     </body>

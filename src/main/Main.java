@@ -15,6 +15,7 @@ public class Main {
     public final static Logger logger = Logger.getLogger(Main.class);
     
     public static void main(String[] args) {
-        
+        System.out.println("Read Test:");
+        System.out.println();
     }
 }
