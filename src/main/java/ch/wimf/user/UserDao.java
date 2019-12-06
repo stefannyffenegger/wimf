@@ -98,7 +98,7 @@ public class UserDao {
             usersList = sessionObj.createQuery("FROM users").list();
         } catch (HibernateException sqlException) {
             if (null != sessionObj.getTransaction()) {
-                logger.info("\n.......Transaction Is Being Rolled Back.......\n");
+                logger.info("\nTransaction Is Being Rolled Back...\n");
                 sessionObj.getTransaction().rollback();
             }
         } finally {
