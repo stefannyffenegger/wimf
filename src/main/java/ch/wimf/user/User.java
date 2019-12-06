@@ -46,7 +46,7 @@ public class User {
     private String lastname;
     private String email;
     private String phone;
-    //@Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
     private Date birthdate;
     @Temporal(TemporalType.TIMESTAMP)
     private Date registration_date;
