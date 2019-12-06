@@ -16,13 +16,23 @@
  */
 package main.java.ch.wimf.product;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Stefan Nyffenegger
  */
+@Entity
+@Table(name = "items")
 public class Item {
 
-    // User Table Attributes
+    // Item Table Attributes
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private int id_fridge;
     private String name;

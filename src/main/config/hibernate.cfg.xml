@@ -8,12 +8,22 @@
 <session-factory>  
  <property name="hbm2ddl.auto">update</property>
  <property name="dialect">org.hibernate.dialect.MariaDB103Dialect</property>
- <property name="connection.url">jdbc:mariadb://localhost:3306/db_wimf</property>
+ <property name="connection.url">jdbc:mariadb://192.168.1.4:3306/db_wimf</property>
  <property name="connection.username">wimf-user</property>
  <property name="connection.password">wimf2019</property>
  <property name="connection.driver_class">org.mariadb.jdbc.Driver</property>
+<<<<<<< HEAD
 
  <mapping resource="user.hbm.xml"/>  
  </session-factory>  
   
 </hibernate-configuration>
+=======
+ 
+ <mapping resource="user.hbm.xml"/>
+ <!-- mapping resource="item.hbm.xml"/> 
+ <mapping resource="fridge.hbm.xml"/ --> 
+ </session-factory>  
+ 
+</hibernate-configuration>  
+>>>>>>> a6c663899a08b45209b73461ce262b1e1e7fc0e3

@@ -16,21 +16,34 @@
  */
 package main.java.ch.wimf.user.registration;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.persistence.*;
+
 /**
- *
+ * User Object
  * @author Stefan Nyffenegger
  */
+@Entity
+@Table(name = "users")
 public class User {
 
     // User Table Attributes
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String username;
     private String firstname;
     private String lastname;
     private String email;
     private String phone;
-    private String birthdate;
-    private String registration_date;
+    //@Temporal(TemporalType.DATE)
+    private Date birthdate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date registration_date;
     private String password;
 
     /**
@@ -52,14 +65,14 @@ public class User {
      * @param registration_date
      * @param password
      */
-    public User(int id, String username, String firstname, String lastname, String email, String phone, String birthdate, String registration_date, String password) {
+    public User(int id, String username, String firstname, String lastname, String email, String phone, String birthdate, Date registration_date, String password) {
         this.id = id;
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.phone = phone;
-        this.birthdate = birthdate;
+        setBirthdate(birthdate);
         this.registration_date = registration_date;
         this.password = password;
     }
@@ -113,18 +126,24 @@ public class User {
     }
 
     public String getBirthdate() {
-        return birthdate;
+        return birthdate.toString();
     }
 
     public void setBirthdate(String birthdate) {
-        this.birthdate = birthdate;
+        try {
+            SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy");
+            Date parsed = format.parse(birthdate); //Parse birthdate form String to Date
+            this.birthdate = parsed;
+        } catch (ParseException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public String getRegistration_date() {
-        return registration_date;
+        return registration_date.toString();
     }
 
-    public void setRegistration_date(String registration_date) {
+    public void setRegistration_date(Date registration_date) {
         this.registration_date = registration_date;
     }
 

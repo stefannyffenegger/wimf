@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.auth0</groupId>
+    <groupId>ch.ffhs.wimf</groupId>
     <artifactId>WIMF</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>WIMF</name>
     <description>What's in my Fridge?!</description>
@@ -35,11 +35,11 @@
 
     <build>
         <sourceDirectory>src</sourceDirectory>
-		<resources>
-			<resource>
-				<directory>src/main/config</directory>
-			</resource>
-		</resources>
+        <resources>
+            <resource>
+                <directory>src/main/config</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>

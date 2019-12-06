@@ -3,21 +3,21 @@
  "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
  "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">  
   
- <hibernate-mapping>  
- <class name="main.java.ch.wimf.api.product.Item" table="u400">
- <id name="id">  
- <generator class="increment"></generator>  
- </id>    
- <property name="id"></property>  
- <property name="name"></property>  
- <property name="description"></property>  
- <property name="barcode"></property>    
- <property name="barcode_type"></property>    
- <property name="category"></property>    
- <property name="expiry_date"></property>    
- <property name="creation_date"></property>    
- <property name="quantity"></property>    
- <property name="quantity_unit"></property>  
- </class>  
+<hibernate-mapping>  
+    <class name="main.java.ch.wimf.product.Item" table="u400">
+        <id name="id" type="int" column="id">
+            <generator class="increment"></generator>  
+        </id>
+        <property name="id_fridge" type="java.lang.String"></property>
+        <property name="name" type="java.lang.String"></property>  
+        <property name="description" type="java.lang.String"></property>  
+        <property name="barcode" type="java.lang.String"></property>    
+        <property name="barcode_type" type="java.lang.String"></property>    
+        <property name="category" type="java.lang.String"></property>    
+        <property name="expiry_date" type="java.lang.String"></property>    
+        <property name="creation_date" type="java.lang.String"></property>    
+        <property name="quantity" type="java.lang.String"></property>    
+        <property name="quantity_unit" type="java.lang.String"></property>  
+    </class>  
          
- </hibernate-mapping>  
+</hibernate-mapping>  
