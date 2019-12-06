@@ -4,7 +4,7 @@
  "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">  
   
 <hibernate-mapping>  
-    <class name="main.java.ch.wimf.user.registration.User" table="users">
+    <class name="main.java.ch.wimf.user.User" table="users">
         <id name="id" type="int" column="id">
             <generator class="increment"/>
         </id>
@@ -16,6 +16,5 @@
         <!--property name="birthdate" type="java.Util.Date"/>
         <property name="registration_date" type="java.Util.Date"/-->
         <property name="password" type="java.lang.String"/>
-    </class>  
-         
+    </class>     
 </hibernate-mapping>  
