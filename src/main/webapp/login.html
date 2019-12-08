@@ -12,25 +12,24 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                <a class="navbar-brand" href="index.html"><img class="img-fluid rounded" src="resources/images/fridge.png" alt="wimf" width="40"></i> Whats in the Fridge?!</a>
+                <a class="navbar-brand" href="index.html"><img class="img-fluid rounded" src="resources/images/fridge.png" alt="wimf"> Whats in the Fridge?!</a>
             </nav>
         </header>
         <div class="container">
             <h1 class="text-center mb-4">Login</h1>
             <form name="form">
                 <div class="form-row">
-                    <p class="form-group col-md-5 text-md-right pr-4"><label for="name">Benutzername</label></p>
-                    <div class="form-group col-md-7"><input class="form-control" type="text" name="name" id="name" placeholder="username">
-                        <div id="nameinfo"></div>
+                    <p class="form-group col-md-5 text-md-right pr-4"><label for="username">Benutzername</label></p>
+                    <div class="form-group col-md-7"><input class="form-control" type="text" name="username" id="username" placeholder="fridgey98">
+                        <div id="usernameinfo"></div>
                     </div>
-                    <p class="form-group col-md-5 text-md-right pr-4"><label for="mail">Passwort</label></p>
-                    <div class="form-group col-md-7"><input class="form-control" type="text" name="mail" id="mail" placeholder="password123">
-                        <div id="mailinfo"></div>
+                    <p class="form-group col-md-5 text-md-right pr-4"><label for="password">Passwort</label></p>
+                    <div class="form-group col-md-7"><input class="form-control" type="text" name="password" id="password" placeholder="passw0rd123">
+                        <div id="passwordinfo"></div>
                     </div>
                 </div>
-                <div class="text-md-right"><button class="btn btn-primary right mb-4" type="button" onclick="sendFeedbackForm()">Send</button></div>
+                <div class="text-md-right"><button class="btn btn-primary right mb-4" type="button" onclick="sendLoginForm()">Send</button></div>
                 <div id="response"></div>
-                <div id="statistic"></div>
             </form>
         </div>
         <footer class="bg-primary mt-2 pt-2">
@@ -41,186 +40,56 @@
         </footer>
         <script src="resources/js/jquery-3.4.1.min.js"></script>
         <script src="resources/js/bootstrap.bundle.min.js"></script>
+        <script src="./resources/config.js"></script>
         <script>
-                    var auth = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.MQ.bYceSpllpyYQixgNzDt7dpCkEojdv3NKD-85XLXfdI4'; //Authentication key
-
                     //Validates the formdata before sending
                     function validateForm() {
-                        var formRadios = ["like", "price"]; //Names of the Radio form elements
                         var valid = true; //Validation flag, if it stays true the data will be sent
                         var info; //Validation messages
 
-                        //Checks if any Radio elements are empty
-                        for (var i = 0; i < formRadios.length; i++) {
-                            if (document.forms["form"][formRadios[i]].value == "") {
-                                info = '<div class="alert alert-danger mb-0 pt-2 pb-2">Please choose an option</div>';
-                                document.getElementById(formRadios[i] + "info").innerHTML = info;
-                                valid = false; //set flag to abort sending
-                            } else {
-                                document.getElementById(formRadios[i] + "info").innerHTML = '';
-                            }
-                        }
-
-                        //Checks if the name field is empty
-                        if (document.getElementById("name").value == "") {
-                            info = '<div class="alert alert-danger mb-0 pt-2 pb-2">Please enter your name</div>';
-                            document.getElementById("nameinfo").innerHTML = info;
+                        //Checks if the username field is empty
+                        if (document.getElementById("username").value == "") {
+                            info = '<div class="alert alert-danger mb-0 pt-2 pb-2">Please enter your username</div>';
+                            document.getElementById("usernameinfo").innerHTML = info;
                             valid = false; //set flag to abort sending
                         } else {
-                            document.getElementById("nameinfo").innerHTML = '';
+                            document.getElementById("usernameinfo").innerHTML = '';
                         }
 
-                        //Validates the e-mail address field
-                        if (!validateMail(document.getElementById("mail").value)) {
-                            info = '<div class="alert alert-danger mb-0 pt-2 pb-2">Please enter a valid e-mail address</div>';
-                            document.getElementById("mailinfo").innerHTML = info;
+                        //Checks if the password field is empty
+                        if (document.getElementById("password").value == "") {
+                            info = '<div class="alert alert-danger mb-0 pt-2 pb-2">Please enter your password</div>';
+                            document.getElementById("passwordinfo").innerHTML = info;
                             valid = false; //set flag to abort sending
                         } else {
-                            document.getElementById("mailinfo").innerHTML = '';
-                        }
-
-                        //Checks that the feedback text contains at least 50 characters
-                        if (document.getElementById("feedback").value.length < 50 || document.getElementById("feedback").value.length > 250) {
-                            info = '<div class="alert alert-danger mb-0 pt-2 pb-2">Your feedback must contain between 50 to 250 characters</div>';
-                            document.getElementById("feedbackinfo").innerHTML = info;
-                            valid = false; //set flag to abort sending
-                        } else {
-                            document.getElementById("feedbackinfo").innerHTML = '';
+                            document.getElementById("passwordinfo").innerHTML = '';
                         }
 
                         return valid;
                     }
 
-                    //Validates the e-mail address per regex
-                    function validateMail(mail) {
-                        var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                        return regex.test(mail);
-                    }
-
-                    //Displays the number of chars of the feedback field
-                    function displayFeedbackChars() {
-                        if (document.getElementById("feedback").value.length >= 0 && document.getElementById("feedback").value.length < 50) {
-                            var info = '<div class="alert alert-warning mb-0 pt-2 pb-2" id="feedbackinfo">' + document.getElementById("feedback").value.length + ' from min 50 chars</div>';
-                            document.getElementById("feedbackinfo").innerHTML = info;
-                        } else if (document.getElementById("feedback").value.length >= 50 && document.getElementById("feedback").value.length <= 250) {
-                            var info = '<div class="alert alert-info mb-0 pt-2 pb-2" id="feedbackinfo">' + document.getElementById("feedback").value.length + ' from max 250 chars</div>';
-                            document.getElementById("feedbackinfo").innerHTML = info;
-                        } else {
-                            var info = '<div class="alert alert-warning mb-0 pt-2 pb-2" id="feedbackinfo">' + document.getElementById("feedback").value.length + ' from max 250 chars</div>';
-                            document.getElementById("feedbackinfo").innerHTML = info;
-                        }
-                    }
-
                     //Sends the entire form as JSON POST if the formdata is valid
-                    function sendFeedbackForm() {
+                    function sendLoginForm() {
                         if (validateForm()) {
-                            var send = '{"name":"' + document.getElementById("name").value + '","pizzaRating":"' + document.forms["form"]["like"].value + '","prizeRating":"' + document.forms["form"]["price"].value + '","email":"' + document.getElementById("mail").value + '","feedback":"' + document.getElementById("feedback").value + '"}';
+                            var send = '{username:"' + document.getElementById("username").value + '",password:"' + document.getElementById("password").value + '}';
                             var xhttp = new XMLHttpRequest();
                             xhttp.onreadystatechange = function () {
                                 if (this.readyState == 4) {
                                     if (this.status == 200 || this.status == 201) {
-                                        document.getElementById("response").innerHTML = '<div class="alert alert-success mb-3 pt-2 pb-2" id="response">Your feedback has been sent successfully!</div>';
-                                        requestFeedbacks(); //Displays the feedback statistics
+                                        document.getElementById("response").innerHTML = '<div class="alert alert-success mb-3 pt-2 pb-2" id="response">Login successful!</div>';
                                     } else if (this.status >= 400 && this.status <= 499) {
-                                        document.getElementById("response").innerHTML = '<div class="alert alert-danger mb-3 pt-2 pb-2" id="response">Client Error, please try again later or contact us on phone or e-mail</div>';
+                                        document.getElementById("response").innerHTML = '<div class="alert alert-danger mb-3 pt-2 pb-2" id="response">Client Error, please try again later or contact us</div>';
                                     } else if (this.status >= 500 && this.status <= 599) {
-                                        document.getElementById("response").innerHTML = '<div class="alert alert-danger mb-3 pt-2 pb-2" id="response">Server Error, please try again later or contact us on phone or e-mail</div>';
+                                        document.getElementById("response").innerHTML = '<div class="alert alert-danger mb-3 pt-2 pb-2" id="response">Server Error, please try again later or contact us</div>';
                                     } else if (this.status == 0) {
-                                        document.getElementById("response").innerHTML = '<div class="alert alert-danger mb-3 pt-2 pb-2" id="response">Unknown Error, please try again later or contact us on phone or e-mail</div>';
+                                        document.getElementById("response").innerHTML = '<div class="alert alert-danger mb-3 pt-2 pb-2" id="response">Unknown Error, please try again later or contact us</div>';
                                     }
                                 }
                             };
-                            xhttp.open("POST", "https://tonyspizzafactory.herokuapp.com/api/feedback", true);
+                            xhttp.open("POST", config.url+"/auth/login", true);
                             xhttp.setRequestHeader("Content-type", "application/json");
-                            xhttp.setRequestHeader('Authorization', auth);
-                            xhttp.send(send);
+                            xhttp.send(send); //Send Payload
                         }
-                    }
-
-                    //Gets the Feedbacks and shows them in a table
-                    function requestFeedbacks() {
-                        var xhttp = new XMLHttpRequest();
-                        xhttp.onreadystatechange = function () {
-                            if (this.readyState == 4 && this.status == 200) {
-                                var json = JSON.parse(this.responseText);
-                                document.getElementById("statistic").innerHTML = createStats(json);
-                            }
-                        };
-                        xhttp.open("GET", "https://tonyspizzafactory.herokuapp.com/api/feedback", true);
-                        xhttp.setRequestHeader("Accept", "application/json");
-                        xhttp.setRequestHeader('Authorization', auth);
-                        xhttp.send();
-                    }
-
-                    //Creates the html for the statistics
-                    function createStats(json) {
-                        var html = '<div class="container"><div class="row"><div class="col-md-6">';
-                        html += '<h2>Pizza Rating Statistics</h2>';
-                        html += '<table class="table table-responsive table-bordered">';
-                        html += '<thead class="thead-default">';
-                        html += '<tr>';
-                        html += '<th>Total</th>';
-                        html += '<th>Awesome</th>';
-                        html += '<th>Good</th>';
-                        html += '<th>Okay</th>';
-                        html += '<th>Poor</th>';
-                        html += '<tr>';
-                        html += '</thead>';
-                        html += '<tbody>';
-                        html += '<tr>';
-                        html += '<td>' + json.length + '</td>';
-                        html += '<td>' + countPizzaRating(json, "awesome") + '</td>';
-                        html += '<td>' + countPizzaRating(json, "good") + '</td>';
-                        html += '<td>' + countPizzaRating(json, "okay") + '</td>';
-                        html += '<td>' + countPizzaRating(json, "poor") + '</td>';
-                        html += '<tr>';
-                        html += '</tbody>';
-                        html += '</table>';
-                        html += '</div>';
-                        html += '<br><div class="col-md-6">';
-                        html += '<h2>Prize Rating Statistics</h2>';
-                        html += '<table class="table table-responsive table-bordered">';
-                        html += '<thead class="thead-default">';
-                        html += '<tr>';
-                        html += '<th>Total</th>';
-                        html += '<th>Fair</th>';
-                        html += '<th>Okay</th>';
-                        html += '<th>Expensive</th>';
-                        html += '<tr>';
-                        html += '</thead>';
-                        html += '<tbody>';
-                        html += '<tr>';
-                        html += '<td>' + json.length + '</td>';
-                        html += '<td>' + countPrizeRating(json, "fair") + '</td>';
-                        html += '<td>' + countPrizeRating(json, "okay") + '</td>';
-                        html += '<td>' + countPrizeRating(json, "expensive") + '</td>';
-                        html += '<tr>';
-                        html += '</tbody>';
-                        html += '</table>';
-                        html += '</div></div></div>';
-                        return html;
-                    }
-
-                    //Counts the pizza ratings
-                    function countPizzaRating(json, string) {
-                        var count = 0;
-                        for (var i = 0; i < json.length; i++) {
-                            if (json[i].pizzaRating.toLowerCase() == string) {
-                                count++;
-                            }
-                        }
-                        return count;
-                    }
-
-                    //Counts the prize ratings
-                    function countPrizeRating(json, string) {
-                        var count = 0;
-                        for (var i = 0; i < json.length; i++) {
-                            if (json[i].prizeRating.toLowerCase() == string) {
-                                count++;
-                            }
-                        }
-                        return count;
                     }
         </script>
     </body>
