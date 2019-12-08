@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
 import main.java.ch.wimf.authentication.Login;
 
 /**
- * /auth Basic Authentication
+ * /auth Basic Authentication Service
  *
  * @author Stefan Nyffenegger
  */
@@ -30,13 +30,12 @@ public class Auth {
     @POST
     @Path("/{auth}")
     public Response login(@PathParam("auth") String auth, @Context HttpServletRequest request) {
-        HttpSession session = request.getSession(); // Get Session Attribute
-
         // Check if Request is empty
         if (auth == null || auth.trim().length() == 0) {
             return Response.serverError().entity("No Credentials received!").build();
         }
 
+        HttpSession session = request.getSession(); // Get Session Attribute
         UserDao userDao = new UserDao();
 
         Gson gson = new Gson();
@@ -45,7 +44,7 @@ public class Auth {
 
         // If user doesn't exist
         if (user == null || !user.getUsername().equals("")) {
-            return Response.status(Response.Status.BAD_REQUEST).entity("User " + auth + " was not found!").build();
+            return Response.status(Response.Status.BAD_REQUEST).entity("User " + authJSON.getUsername() + " was not found!").build();
         }
 
         // Check Password
@@ -70,5 +69,35 @@ public class Auth {
         HttpSession session = request.getSession(); // Get Session
         session.invalidate(); // Invalidate session
         return Response.status(Response.Status.ACCEPTED).entity("Logout Successful!").build();
+    }
+
+    /**
+     * Register
+     *
+     * @param register
+     * @return Response
+     */
+    @POST
+    @Path("/register")
+    public Response register(@PathParam("register") String register) {
+        // Check if Request is empty
+        if (register == null || register.trim().length() == 0) {
+            return Response.serverError().entity("No Credentials received!").build();
+        }
+
+        UserDao userDao = new UserDao();
+
+        Gson gson = new Gson();
+        User registerJSON = gson.fromJson(register, User.class); // Parse JSON to Login Obj
+        User user = userDao.getUser(registerJSON.getUsername()); // Search user
+        
+        // If user doesn't exist
+        if (user == null || !user.getUsername().equals("")) {
+            userDao.saveUser(user); // Save the new user
+        }else{
+            return Response.status(Response.Status.BAD_REQUEST).entity("User " + registerJSON.getUsername() + " already exists!").build();
+        }
+        
+        return Response.status(Response.Status.ACCEPTED).entity("Register Successful!").build();
     }
 }
