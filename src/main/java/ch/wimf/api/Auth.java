@@ -54,7 +54,7 @@ public class Auth {
 
         session.setAttribute("username", authJSON.getUsername()); // Set Session Attribute
         // Send Status 200 OK
-        return Response.ok(authJSON, MediaType.APPLICATION_JSON).build();
+        return Response.status(Response.Status.ACCEPTED).entity("Login Successful!").build();
     }
 
     /**
