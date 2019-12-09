@@ -16,11 +16,11 @@
  */
 package main.java.ch.wimf.product;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import main.java.ch.wimf.usermanagement.dao.UserDao;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -33,16 +33,41 @@ public class Item {
     // Item Table Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private int id_fridge;
+    @Column(name="item_id")
+    private int item_id;
+
+
+    @ManyToOne
+    @JoinColumn(name="fridge_id", nullable=false)
+    private Fridge fridge;
+
+
+
+    @Column(name="name")
     private String name;
+
+    @Column(name="description")
     private String description;
+
+    @Column(name="barcode")
     private String barcode;
+
+    @Column(name="barcode_type")
     private int barcode_type;
+
+    @Column(name="category")
     private int category;
-    private String expiry_date;
-    private String creation_date;
+
+    //@Column(name="expiry_date")
+    //private java.sql.Date expiry_date;
+
+    //@Column(name="creation_date")
+    //private java.sql.Date creation_date;
+
+    @Column(name="quantity")
     private int quantity;
+
+    @Column(name="quantity_unit")
     private int quantity_unit;
 
     /**
@@ -54,46 +79,51 @@ public class Item {
 
     /**
      *
-     * @param id
-     * @param id_fridge
+     * @param item_id
+     * @param fridge
      * @param name
      * @param description
      * @param barcode
      * @param barcode_type
      * @param category
-     * @param expiry_date
-     * @param creation_date
      * @param quantity
      * @param quantity_unit
      */
-    public Item(int id, int id_fridge, String name, String description, String barcode, int barcode_type, int category, String expiry_date, String creation_date, int quantity, int quantity_unit) {
-        this.id = id;
-        this.id_fridge = id_fridge;
+    public Item(int item_id, Fridge fridge, String name, String description, String barcode, int barcode_type, int category, int quantity, int quantity_unit) {
+        super();
+        this.item_id = item_id;
+        this.fridge = fridge;
         this.name = name;
         this.description = description;
         this.barcode = barcode;
         this.barcode_type = barcode_type;
         this.category = category;
-        this.expiry_date = expiry_date;
-        this.creation_date = creation_date;
+        this.quantity = quantity;
+        this.quantity_unit = quantity_unit;
+    }
+
+    public Item( String name, String description, String barcode, int barcode_type, int category, int quantity, int quantity_unit) {
+        super();
+
+        UserDao<Fridge> userDao = new UserDao<>(Fridge.class);
+        Fridge fridge = userDao.getUser(1);
+
+        this.fridge = fridge;
+        this.name = name;
+        this.description = description;
+        this.barcode = barcode;
+        this.barcode_type = barcode_type;
+        this.category = category;
         this.quantity = quantity;
         this.quantity_unit = quantity_unit;
     }
 
     public int getId() {
-        return id;
+        return item_id;
     }
 
     public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getId_fridge() {
-        return id_fridge;
-    }
-
-    public void setId_fridge(int id_fridge) {
-        this.id_fridge = id_fridge;
+        this.item_id = item_id;
     }
 
     public String getName() {
@@ -136,21 +166,7 @@ public class Item {
         this.category = category;
     }
 
-    public String getExpiry_date() {
-        return expiry_date;
-    }
 
-    public void setExpiry_date(String expiry_date) {
-        this.expiry_date = expiry_date;
-    }
-
-    public String getCreation_date() {
-        return creation_date;
-    }
-
-    public void setCreation_date(String creation_date) {
-        this.creation_date = creation_date;
-    }
 
     public int getQuantity() {
         return quantity;
@@ -168,4 +184,12 @@ public class Item {
         this.quantity_unit = quantity_unit;
     }
 
+
+    public Fridge getFridge() {
+        return fridge;
+    }
+
+    public void setFridge(Fridge fridge) {
+        this.fridge = fridge;
+    }
 }

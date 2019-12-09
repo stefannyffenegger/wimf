@@ -10,14 +10,14 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 
-@Path("/")
-public class Services {
+@Path("/user")
+public class UserService {
 
     @GET
     @Path("/all")
-    public Response getWins() {
+    public Response getAllUsers() {
 
-        UserDao userDao = new UserDao();
+        UserDao<User> userDao = new UserDao<>(User.class);
         List<User> listUser = userDao.getAllUser();
 
         if(listUser == null) {
@@ -34,13 +34,13 @@ public class Services {
 
     @GET
     @Path("/{uuid}")
-    public Response getWins(@PathParam("uuid") String uuid) {
+    public Response getUserById(@PathParam("uuid") String uuid) {
 
         if(uuid == null || uuid.trim().length() == 0) {
             return Response.serverError().entity("UUID cannot be blank").build();
         }
 
-        UserDao userDao = new UserDao();
+        UserDao<User> userDao = new UserDao<>(User.class);
 
         User userByUuid = userDao.getUser( Integer.parseInt(uuid) );
         if(userByUuid == null) {

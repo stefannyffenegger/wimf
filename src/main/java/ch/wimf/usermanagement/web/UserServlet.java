@@ -27,7 +27,7 @@ public class UserServlet extends HttpServlet {
 	private UserDao userDao;
 	
 	public void init() {
-		userDao = new UserDao();
+		userDao = new UserDao<User>(User.class);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -82,7 +82,7 @@ public class UserServlet extends HttpServlet {
 	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
-		User existingUser = userDao.getUser(id);
+		User existingUser = (User) userDao.getUser(id);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("user-form.jsp");
 		request.setAttribute("user", existingUser);
 		dispatcher.forward(request, response);

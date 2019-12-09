@@ -16,11 +16,9 @@
  */
 package main.java.ch.wimf.product;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -33,8 +31,20 @@ public class Fridge {
     // Fridge Table Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @Column(name="fridge_id")
+    private int fridge_id;
+
+
+    @OneToMany(mappedBy="fridge", fetch = FetchType.EAGER)
+    private Set<Item> items;
+
+
+
+
+    @Column(name="name")
     private String name;
+
+    @Column(name="description")
     private String description;
 
     /**
@@ -46,22 +56,30 @@ public class Fridge {
     
     /**
      * 
-     * @param id
+     * @param fridge_id
      * @param name
      * @param description 
      */
-    public Fridge(int id, String name, String description) {
-        this.id = id;
+    public Fridge(int fridge_id, Set<Item> items, String name, String description) {
+        super();
+        this.fridge_id = fridge_id;
+        this.items = items;
+        this.name = name;
+        this.description = description;
+    }
+
+    public Fridge(String name, String description) {
+        super();
         this.name = name;
         this.description = description;
     }
 
     public int getId() {
-        return id;
+        return fridge_id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.fridge_id = fridge_id;
     }
 
     public String getName() {
@@ -78,5 +96,13 @@ public class Fridge {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<Item> getItems() {
+        return this.items;
+    }
+
+    public void setItems(Set<Item> items) {
+        this.items = items;
     }
 }

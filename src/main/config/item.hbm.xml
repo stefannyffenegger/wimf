@@ -14,9 +14,9 @@
         <property name="barcode" type="java.lang.String"></property>    
         <property name="barcode_type" type="java.lang.String"></property>    
         <property name="category" type="java.lang.String"></property>    
-        <property name="expiry_date" type="java.lang.String"></property>    
+        <property name="expiry_date" type="java.util.Date"></property>
         <property name="creation_date" type="java.lang.String"></property>    
-        <property name="quantity" type="java.lang.String"></property>    
+        <property name="quantity" type="java.lang.Integer"></property>
         <property name="quantity_unit" type="java.lang.String"></property>  
     </class>  
          

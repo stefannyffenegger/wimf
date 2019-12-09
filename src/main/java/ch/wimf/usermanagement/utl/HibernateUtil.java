@@ -2,6 +2,8 @@ package main.java.ch.wimf.usermanagement.utl;
 
 import java.util.Properties;
 
+import main.java.ch.wimf.product.Fridge;
+import main.java.ch.wimf.product.Item;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -41,6 +43,8 @@ public class HibernateUtil {
                                 
                                 // Add Mapping Classes
 				configuration.addAnnotatedClass(User.class);
+				configuration.addAnnotatedClass(Fridge.class);
+				configuration.addAnnotatedClass(Item.class);
 
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();

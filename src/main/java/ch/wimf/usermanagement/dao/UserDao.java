@@ -13,13 +13,19 @@ import main.java.ch.wimf.usermanagement.utl.HibernateUtil;
  * @author Ramesh Fadatare
  *
  */
-public class UserDao {
+public class UserDao<T> {
+
+	final Class<T> typeParameterClass;
+
+	public UserDao(Class<T> typeParameterClass) {
+		this.typeParameterClass = typeParameterClass;
+	}
 	
 	/**
 	 * Save User
 	 * @param user
 	 */
-	public void saveUser(User user) {
+	public void saveUser(T user) {
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
@@ -40,7 +46,7 @@ public class UserDao {
 	 * Update User
 	 * @param user
 	 */
-	public void updateUser(User user) {
+	public void updateUser(T user) {
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
@@ -69,7 +75,7 @@ public class UserDao {
 			transaction = session.beginTransaction();
 
 			// Delete a user object
-			User user = session.get(User.class, id);
+			T user = session.get(typeParameterClass, id);
 			if (user != null) {
 				session.delete(user);
 				System.out.println("user is deleted");
@@ -90,15 +96,15 @@ public class UserDao {
 	 * @param id
 	 * @return
 	 */
-	public User getUser(int id) {
+	public T getUser(int id) {
 
 		Transaction transaction = null;
-		User user = null;
+		T user = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
 			transaction = session.beginTransaction();
 			// get an user object
-			user = session.get(User.class, id);
+			user = session.get(typeParameterClass, id);
 			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {
@@ -115,16 +121,16 @@ public class UserDao {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public List<User> getAllUser() {
+	public List<T> getAllUser() {
 
 		Transaction transaction = null;
-		List<User> listOfUser = null;
+		List<T> listOfUser = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
 			transaction = session.beginTransaction();
 			// get an user object
 			
-			listOfUser = session.createQuery("from User").getResultList();
+			listOfUser = session.createQuery("from " + typeParameterClass.getSimpleName() ).getResultList();
 			
 			// commit transaction
 			transaction.commit();
