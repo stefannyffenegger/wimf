@@ -115,6 +115,31 @@ public class UserDao<T> {
 		}
 		return user;
 	}
+        
+        /**
+	 * Get User By Username
+	 * @param username
+	 * @return
+	 */
+	public User getUser(String username) {
+
+		Transaction transaction = null;
+		User user = null;
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+			// start a transaction
+			transaction = session.beginTransaction();
+			// get an user object
+			user = session.get(User.class, username);
+			// commit transaction
+			transaction.commit();
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
+		return user;
+	}
 	
 	/**
 	 * Get all Users

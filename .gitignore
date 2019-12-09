@@ -25,3 +25,6 @@ hs_err_pid*
 /classes/
 .idea/
 WIMF.iml
+
+# Glassfish Config
+glassfish-web.xml

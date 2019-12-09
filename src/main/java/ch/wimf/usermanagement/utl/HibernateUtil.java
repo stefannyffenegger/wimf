@@ -28,9 +28,9 @@ public class HibernateUtil {
 				// Hibernate settings equivalent to hibernate.cfg.xml's properties
 				Properties settings = new Properties();
 				settings.put(Environment.DRIVER, "org.mariadb.jdbc.Driver");
-				settings.put(Environment.URL, "jdbc:mariadb://localhost:3306/db_wimf");
-				settings.put(Environment.USER, "root");
-				settings.put(Environment.PASS, "root");
+				settings.put(Environment.URL, "jdbc:mariadb://192.168.1.4:3306/db_wimf"); //192.168.1.4:3306/db_wimf
+				settings.put(Environment.USER, "wimf-user"); //wimf-user
+				settings.put(Environment.PASS, "wimf2019"); //wimf2019
 				settings.put(Environment.DIALECT, "org.hibernate.dialect.MariaDB103Dialect");
 
 				settings.put(Environment.SHOW_SQL, "true");
